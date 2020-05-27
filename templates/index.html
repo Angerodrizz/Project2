@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block script %}
+    <script type="text/javascript"src="{{ url_for('static', filename='user.js') }}"></script>
+    <script type="text/javascript"src="{{ url_for('static', filename='channel.js') }}"></script>
+    <script type="text/javascript"src="{{ url_for('static', filename='message.js') }}"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+{% endblock %}
+
+
+{% block title %}
+    Flack
+{% endblock %}
+
+
+{% block main %}
+
+<body class='container'>
+    <div class='text-center jumbotron bg-light'>
+        <h1 class='text-info title'>Flack</h1>
+    </div>
+    <div><h5 class='channel_crt title2 text-center bg-light'></h5></div>
+    <div  class='row h-75 no-gutters border border-secondary' >
+        <div class='col-9 bg-light border p-3 d-flex flex-column justify-content-end h-100' >
+            <div class='title2 msg_style d-inline-block'>
+                <ul id="messages" class="list-group"></ul>
+            <!--place for all messages-->
+            </div>
+            <form class='form-inline' id='send_message'>
+                <input class='col-sm-7' type="text" id='myMessage' placeholder="Write your message"><br>
+                <button class='btn btn-outline-primary' id='sendbutton'>Send Message</button>
+            </form>
+        </div>
+        <div class='col-3  text-center channel_style'>
+            <form class='form-inline' id='form' action='/channels' method='post'>
+                <input class='col-sm-7' id=nm_channel clas='form-control' type='text' name='new_channel' placeholder='Create a new channel'>
+                <button class='col-sm-5 btn btn-outline-success' id=sb_channel>New Channel</button>
+                </form>
+                <br>
+            {% for i in all_channels %}
+                        <div class="alert alert-success post">
+                        <a href="" id="show_channel" data-channel="{{ i }}"># {{  i }}</a>
+                        <button class="hide">Hide</button>
+                        </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+   
+</body>
+
+{% endblock %}

@@ -1,0 +1,95 @@
+.footer {
+    padding-bottom: 0rem;
+  }
+
+  .footer p {
+    margin: 0;
+  }
+
+  .nv {
+    background-color: rgb(248, 200, 229) !important;
+    height: 70px;
+  }
+
+
+  .title {
+    font-family: 'Merriweather', serif;
+  }
+
+  .title2 {
+  font-family: 'Lato', sans-serif;
+  }
+
+  .msg_style {
+      border: 3px solid pink;    
+      overflow: auto;
+      height: 250px;
+      width: 100%;
+  }
+
+  .channel_style {    
+    overflow: auto;
+    height: 320px;
+    width: 200px;
+}
+
+/* Personal touch */
+
+@keyframes hide {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+.hide  {
+  float: right;
+}
+
+.post {
+  background-color: #f0c2ea;
+  padding: 20px;
+  margin-bottom: 10px;
+  animation-name: hide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+
+@keyframes move {
+  0% {
+      left: 0%;
+  }
+  40% {
+      left: 40%;
+  }
+  100% {
+      left: 0%;
+  }
+}
+
+h1 {
+  position: relative;
+  animation-name: move;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+
+.list1 {
+  padding: 5px;
+  color: rgb(65, 231, 231);
+}
+.list {
+  padding: 5px;
+  color: rgb(81, 153, 48);
+  text-align: right;
+}
+
+#messages {
+  display: flex;
+  flex-flow: column-reverse
+}

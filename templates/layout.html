@@ -1,0 +1,108 @@
+  
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet"> 
+
+     <!--JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <!--Bootstrap!-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <!--CSS-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    
+    <!--SoketIO JS--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+    
+
+    {% block script %}
+    {% endblock %}
+    
+    <title>Project 2: {% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <div>
+            <header>
+
+                <div class='text-center'>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                          <span>{{ message }}</span>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+                </div>
+                
+                <div class='title'>
+                 <nav class="navbar nv navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar navbar-brand" href="#" id="welcome"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                          <a class="nav-link" id='salir' href="/">Logout</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>  
+
+                <div>
+                    {% block head %}
+                    {% endblock %}
+                </div>
+
+            </header>
+
+
+        </div>
+
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+
+
+        {% block body %}
+            <div class="row">
+                <div class="col-sm-12 bg-info text-center text-light">
+                 </div>
+            </div>
+
+        {% endblock %}
+
+
+        
+    <section>
+        <footer class="footer text-center">
+            <a href="https://linkedin.com/in/angelina-rizzuti"><i class="icon fab fa-linkedin fa-2x"></i></a>
+            <p>iAngy &copy; 2020 - All rights reserved.</p>
+        </footer>
+    </section>
+       
+
+
+     
+    </body>
+
+
+</html>
